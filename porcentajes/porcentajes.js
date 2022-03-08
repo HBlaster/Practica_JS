@@ -16,5 +16,5 @@ function CalcDescuento() {
 
     descuento = CalcularDescuento(value1, value2);
 
-    alert (descuento);
+    alert ("El precio es de: $ " + descuento);
 }
