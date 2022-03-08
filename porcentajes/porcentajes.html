@@ -9,11 +9,24 @@
 <body>
     <div class="Container">
 
-        <div class="principal">
+        <div class="form-container">
+            <img src="./descuento.png" alt="">
+            <h1>Calculadora de precio con descuento</h1>
+            <p>Obten el valor de tus articulos despues de aplicar el descuento</p>
 
-            <div class="titulo">
-                <h1>Calculadora de descuentos</h1>
-            </div>
+            <form action="">
+                <label for="Input1">
+                    Escribe el precio del articulo que deseas calcular
+                </label>
+                <input id="Input1" type="number"/>
+
+                <label for="Input2">
+                    Escribir el descuento a aplicar:
+                </label>
+                <input id="Input2" type="number"/>
+
+                <button type="button" onclick="CalcDescuento()"> Calcular descuento</button>
+            </form>
 
         </div>
     </div>

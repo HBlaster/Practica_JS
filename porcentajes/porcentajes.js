@@ -1,9 +1,20 @@
-var precioOriginal = 100;
-const descuento = 15;
-const PrecioConDescuento = 100 - descuento;
 
-const calculo = ((precioOriginal * PrecioConDescuento)/100); 
+function CalcularDescuento (precio, descuento){
+    const PorcentajeDescuento = 100 - descuento;
+    const PrecioDescuento = (precio * PorcentajeDescuento)/100;
 
-console.log("El precio original es " + precioOriginal);
-console.log("El descuento es de: " + descuento + "%");
-console.log("El precio con descuento es " + calculo);
+    return PrecioDescuento;
+
+}
+
+function CalcDescuento() {
+    const l1 = document.getElementById("Input1"); 
+    const value1 = Number(l1.value);
+
+    const l2 = document.getElementById("Input2"); 
+    const value2 = Number(l2.value);
+
+    descuento = CalcularDescuento(value1, value2);
+
+    alert (descuento);
+}
