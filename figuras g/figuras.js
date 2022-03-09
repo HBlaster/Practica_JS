@@ -141,8 +141,8 @@ function calcAreaCirculo () {
     const input = document.getElementById("InputCirculo");
     const value = input.value;
 
-    const C = document.getElementById("c");
-    C.innerText = value;
+    const resul = document.getElementById("c");
+    resul.innerText = "El PRECIO CON DESCUENTO SON: $ ";
 
     
 }
