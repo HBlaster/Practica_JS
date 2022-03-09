@@ -141,8 +141,10 @@ function calcAreaCirculo () {
     const input = document.getElementById("InputCirculo");
     const value = input.value;
 
+    const area = AreaCirculo(value);
+
     const resul = document.getElementById("c");
-    resul.innerText = "El PRECIO CON DESCUENTO SON: $ ";
+    resul.innerText = area + " Metros";
 
     
 }
