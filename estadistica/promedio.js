@@ -21,5 +21,6 @@ const sumalista = lista.reduce (
 
 let promedio = (sumalista)/lista.length;
 
-console.log (promedio); 
+return promedio;
+
 }
