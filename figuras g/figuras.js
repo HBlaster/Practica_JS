@@ -141,8 +141,10 @@ function calcAreaCirculo () {
     const input = document.getElementById("InputCirculo");
     const value = input.value;
 
-    const Area = AreaCirculo(value);
-    alert (Area);
+    const C = document.getElementById("c");
+    C.innerText = value;
+
+    
 }
 //comentario para prueba
 

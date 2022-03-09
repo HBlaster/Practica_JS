@@ -5,116 +5,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Figuras geometricas | curso practico js en platzi</title>
-    <style>
-        :root{
-            background: rgb(163, 218, 163);
-        }
-        .container {
-            margin: 30px;
-            text-align: center;
-        }
-        .tittle{
-            font-size: larger;
-        }
-        .tittle p{
-            font-size: large;
-            
-        }
-
-        .operaciones{
-            display: grid;
-            grid-template-columns: 1fr;
-            align-items: center;
-            background-color: whitesmoke;
-            border-radius: 8px;
-            
-            
-        }
-        .figuras{
-            width: 75%;
-            margin: 10% 10% 10% 10%;
-            border-radius: 2px;
-            background: rgb(163, 218, 163);
-        }
-        .figuras h2 {
-            color: rgb(1, 36, 1);
-            
-        }
-        
-    </style>
+    <link rel="stylesheet" href="/figuras g/figuras.css">
+   
 </head>
 
 <body>
     <script src="./figuras.js"></script>
 
     <div class="container">
-        <div class="tittle">
-            <header>
-            <h1>Figuras geometricas</h1>
-            <p>Taller practico JS</p>
+        
+            <header class="title">
+            <h1>FIGURAS GEOMETRICAS</h1>
+            <p>PRACTICA JAVASCRIPT</p>
             </header>
-        </div>
-        <div class="operaciones">
+
 
                 <div class="figuras">
-                    <section>
+                    
                         <h2>Cuadrado</h2>
                         
-                        <form action="">
-                            <label for="InputCuadrado">
+                        <form action="" class="form">
+                            <label for="InputCuadrado" class="label">
                                 Escribir cuanto miden los lados del cuadrado:
                             </label>
-                            <input id="InputCuadrado" type="number"/>
-                            <button type="button" onclick="calcPercuadrado ()">Calcular perimetro</button>
-                            <button type="button" onclick="calcAreacuadrado ()">Calcular area</button>
+                            <input id="InputCuadrado" type="number" class="input"/>
+                            <button type="button" class="buton" onclick="calcPercuadrado ()">Calcular perimetro</button>
+                            <button type="button" class="buton" onclick="calcAreacuadrado ()">Calcular area</button>
+                            <p class="p" id="c"></p>
                         </form>
-                    </section> 
+                    
                 </div>  
 
                 <div class="figuras">
-                    <section>
+            
                         <h2>Triangulo</h2>
                         
-                        <form action="">
-                            <label for="Input1">
+                        <form action="" class="form">
+                            <label for="Input1" class="label">
                                 Escribir cuanto mide el lado 1 del triangulo:
                             </label>
-                            <input id="Input1" type="number"/>
+                            <input id="Input1" type="number" class="input"/>
 
-                            <label for="Input2">
+                            <label for="Input2" class="label">
                                 Escribir cuanto mide el lado 2 del triangulo:
                             </label>
-                            <input id="Input2" type="number"/>
+                            <input id="Input2" type="number" class="input"/>
 
-                            <label for="base">
+                            <label for="base" class="label">
                                 Escribir cuanto mide la base del triangulo:
                             </label>
-                            <input id="base" type="number"/>
+                            <input id="base" type="number" class="input"/>
 
-                            <button type="button" onclick="calcPerTri ()">Calcular perimetro</button>
-                            <button type="button" onclick="calcAreaTri ()">Calcular area</button>
+                            <button type="button" class="buton" onclick="calcPerTri ()">Calcular perimetro</button>
+                            <button type="button" class="buton" onclick="calcAreaTri ()">Calcular area</button>
+                            <p class="p" id="c"></p>
                         </form>
-                    </section> 
+                
                 </div>  
 
                 <div class="figuras">
-                    <section>
+                    
                         <h2>Circulo</h2>
                         
-                        <form action="">
-                            <label for="InputCirculo">
+                        <form action="" class="form">
+                            <label for="InputCirculo" class="label">
                                 Escribir el radio del circulo:
                             </label>
-                            <input id="InputCirculo" type="number"/>
+                            <input id="InputCirculo" type="number" class="input"/>
 
-                            <button type="button" onclick="calcDiaCirculo ()">Calcular diametro</button>
-                            <button type="button" onclick="calcPerCirculo ()">Calcular perimetro</button>
-                            <button type="button" onclick="calcAreaCirculo ()">Calcular area</button>
+                            <button type="button" class="buton" onclick="calcDiaCirculo ()">Calcular diametro</button>
+                            <button type="button" class="buton" onclick="calcPerCirculo ()">Calcular perimetro</button>
+                            <button type="button" class="buton" onclick="calcAreaCirculo ()">Calcular area</button>
+                            <P class="c" id="c"></P>
                         </form>
-                    </section> 
-                </div> 
-            
-        </div>    
+                    
+                </div>  
     </div>
 
     
