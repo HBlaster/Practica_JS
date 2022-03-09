@@ -73,7 +73,10 @@ function calcPercuadrado () {
     const value = input.value;
 
     const perimetro = perimetroCuadrado (value);
-    alert (perimetro);
+
+    const resul = document.getElementById("a");
+    resul.innerText = perimetro + " Metros";
+    
 }
 
 function calcAreacuadrado () {
@@ -81,7 +84,10 @@ function calcAreacuadrado () {
     const value = input.value;
 
     const area = areaCuadrada(value);
-    alert (area);
+
+    const resul = document.getElementById("a");
+    resul.innerText = area + " Metros";
+    
 }
 
 function calcPerTri () {
@@ -96,7 +102,9 @@ function calcPerTri () {
 
     const perimetro= perimetrotriangulo (value1, value2, valueb);
 
-    alert(perimetro);
+    const resul = document.getElementById("b");
+    resul.innerText = perimetro + " Metros";
+    
 }
 
 function calcAreaTri () {
@@ -111,7 +119,10 @@ function calcAreaTri () {
 
     const altura = alturaTriangulo (value1, value2);
     const area = areaTriangulo(valueb, altura);
-    alert(area);
+
+    const resul = document.getElementById("b");
+    resul.innerText = area + " Metros";
+    
 
 }
 
@@ -126,7 +137,9 @@ function calcDiaCirculo () {
     const value = input.value;
 
     const diametro = Diametro(value);
-    alert (diametro);
+    const resul = document.getElementById("c");
+    resul.innerText = diametro + " Metros";
+    
 }
 
 function calcPerCirculo () {
@@ -134,7 +147,9 @@ function calcPerCirculo () {
     const value = input.value;
     const diametro = Diametro(value);
     const perimetro = perimetroCirculo(diametro);
-    alert (perimetro);
+    
+    const resul = document.getElementById("c");
+    resul.innerText = perimetro + " Metros";
 }
 
 function calcAreaCirculo () {
