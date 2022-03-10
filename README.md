@@ -4,4 +4,4 @@ ejercicios de practica de JS
 
 # Ejercicio 2: Calculo de porcentajes y descuentos
 
-# Ejercicio 3: Calculo de moda, media y promedio
+# Ejercicio 3: Calculo de moda, media, promedio y promedio ponderado
