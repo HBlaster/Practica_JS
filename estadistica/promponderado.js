@@ -23,7 +23,7 @@ const notes = [
     ((n1*c1) + (n2*c2) + (n3* c3))/(c1+c2+c3)
 */
 
-//se multiplica la nota por los objetos de la misma
+//se multiplica la nota por los creditos de la misma
 const notasConCredito = notes.map(
     function(noteObject){
         return noteObject.nota * noteObject.creditos;
@@ -52,6 +52,6 @@ const sumaCreditos = creditos.reduce(
         return sum + newVal1;
     }
 );
-
+//Se divide el resultado de las notas multiplicadas por los creditos entre la suma de los creditos
 const resultado = sumaNotasConCreditos/sumaCreditos;
 console.log(resultado);
