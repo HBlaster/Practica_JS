@@ -26,9 +26,16 @@ function MediaAritmetica(lista){
     
 }
 
+function ordenarArray(listadesordenada){
+    let array_ordenado = listadesordenada.sort();
+    return array_ordenado;
+
+}
 
 function calcularmediana (lista){
-    const mitadLista1 = parseInt(lista.length / 2);
+
+    let Ordenado = ordenarArray(lista);
+    const mitadLista1 = parseInt(Ordenado.length / 2);
 
 
     function esPar(numerito) {
@@ -42,10 +49,10 @@ function calcularmediana (lista){
 
     let mediana ; 
 
-    if ( esPar(lista.length) ){
+    if ( esPar(Ordenado.length) ){
 
-        const elemento1 = lista[mitadLista1 - 1];
-        const elemento2 = lista[mitadLista1 ];
+        const elemento1 = Ordenado[mitadLista1 - 1];
+        const elemento2 = Ordenado[mitadLista1 ];
 
         const promedio = MediaAritmetica([elemento1, elemento2]);
         mediana = promedio;
@@ -53,7 +60,7 @@ function calcularmediana (lista){
 
 
     } else {
-        mediana = lista[mitadLista1];
+        mediana = Ordenado[mitadLista1];
         console.log(mediana);
     } 
 }
