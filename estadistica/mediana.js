@@ -1,10 +1,3 @@
-const lista1 = [
-    100,
-    200,
-    300,
-    500,
-
-];
 
 function MediaAritmetica(lista){
     /*let sumalista = 0;
