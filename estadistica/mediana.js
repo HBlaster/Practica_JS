@@ -54,11 +54,12 @@ function calcularmediana (lista){
 
         const promedio = MediaAritmetica([elemento1, elemento2]);
         mediana = promedio;
-        console.log(mediana);
+        
 
 
     } else {
         mediana = Ordenado[mitadLista1];
-        console.log(mediana);
+        
     } 
+    return mediana;
 }
