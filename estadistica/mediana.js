@@ -4,6 +4,7 @@ function MediaAritmetica(lista){
     //Se realiza la suma de los numeros dentro del array,
     //se realiza por medio de un ciclo for o del metodo reduce
     //para ir recorriendo el arreglo
+
     /*let sumalista = 0;
     for (let i =0; i < lista.length; i++){
         sumalista = sumalista + lista[i];
@@ -22,7 +23,7 @@ function MediaAritmetica(lista){
     return promedio;
     
 }
-
+//Se ordena el arreglo de mayor amenor con la funcion .sort
 function ordenarArray(listadesordenada){
     let array_ordenado = listadesordenada.sort();
     return array_ordenado;
