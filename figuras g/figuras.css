@@ -6,10 +6,10 @@ body {
 }
 .container{
     width: 100%;
-    color: rgb(54, 54, 54);
+    color: rgb(58, 58, 58);
     height: 150vh;
     display: grid;
-    place-items: center;
+    justify-content: center;
     border: rgb(54, 54, 54) solid;
     border-radius: 10px;
 }
