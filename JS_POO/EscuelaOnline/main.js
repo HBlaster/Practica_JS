@@ -1,11 +1,26 @@
+//Cursos de la plataforma
 class Courses {
     constructor({
         name,
         classes = [],
     }){
-        this.name = name;
+        this._name = name; //pedir que no se llame al metodo con un "_"
         this.classes = classes;
     }
+
+    get name (){
+        return this._name;
+    }
+
+    set name (nuevoNombre){
+        if(nuevoNombre === "nombre inventado para el ejemplo"){
+            console.error("wey... no");
+        }else{
+            this._name = nuevoNombre;
+        }
+        
+    }
+    
 };
 
 const cursoProgBasica = new Courses ({
@@ -19,6 +34,8 @@ const cursoDefinitivoHTML = new Courses ({
 const cursoPracticoHTML = new Courses ({
     name: "Curso practico HTML y CSS",
 });
+
+//Rutas de aprendizaje
 
 class learningPaths{
     constructor({
