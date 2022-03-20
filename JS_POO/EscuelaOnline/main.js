@@ -8,7 +8,7 @@ function videoStop(id){
     console.log("Se pauso la url" + urlSecreta );
 }
 
-export class PlatziClass { 
+    class PlatziClass { 
     constructor({
         name,
         videoID,
@@ -46,9 +46,13 @@ class Courses {
     constructor({
         name,
         classes = [],
+        isFree = false,
+        lang = "Spanish",
     }){
         this._name = name; //pedir que no se llame al metodo con un "_"
         this.classes = classes;
+        this.isFree = isFree;
+        this.lang = lang;
     }
 
     get name (){
@@ -68,6 +72,7 @@ class Courses {
 
 const cursoProgBasica = new Courses ({
     name: "Curso Gratis de Programacion Basica",
+    isFree: true,
 });
 
 const cursoDefinitivoHTML = new Courses ({
@@ -76,6 +81,7 @@ const cursoDefinitivoHTML = new Courses ({
 
 const cursoPracticoHTML = new Courses ({
     name: "Curso practico HTML y CSS",
+    lang: "english",
 });
 
 //Rutas de aprendizaje
@@ -123,6 +129,10 @@ const EscuelaVgs = new learningPaths({
 
 
 
+
+
+
+
 class Student {
     constructor ({
         name, 
@@ -148,14 +158,63 @@ class Student {
     }
 };
 
-const alfredo = new Student ({
+// Existen diferentes tipos de estudiantes en la plataforma, es necesario dar diferentes tipos de accesos para cada tipo de estudiante, para esto tenemos una clase student "master", de la cual se va a obtener la informacion general, y con "extends" la vamos a mandar llamar en las siguientes clases mas especificas, con la finalidad de no repetir codigo 
+
+class FreeStudent extends Student {
+    constructor(props){
+        super(props); //se usa super para mandar llamar al constructor de la clase madre "Student"
+    }
+    approveCourse(newCourse){
+        if(newCourse.isFree)
+        {
+            this.approvedCourses.push(newCourse);
+        } else{
+            console.warn("lo sentimos," + this.name +", solo puedes tomar cursos abiertos.");
+        }
+    }
+}
+
+class BasicStudent extends Student {
+    constructor(props){
+        super(props); 
+    }
+
+    approveCourse(newCourse){
+        if(newCourse.lang !== "english")
+        {
+            this.approvedCourses.push(newCourse);
+        } else{
+            console.warn("lo sentimos," + this.name +", no puedes tomar cursos en ingles.");
+        }
+    }
+}
+
+
+class ExpertStudent extends Student {
+    constructor(props){
+        super(props); 
+    }
+
+    approveCourse(newCourse){
+        this.approvedCourses.push(newCourse);
+    }
+}
+
+
+
+
+
+
+
+
+const alfredo = new ExpertStudent ({
     name: "AlfredoC",
     username: "AlfredoC103",
     email: "alfredo103@ejemplo.com",
     twitter:"alfredo_C1",
 })
 
-const jose = new Student ({
+const jose = new FreeStudent ({
     name: "joseC",
     username: "joseC103",
     email: "joseC@ejemplo.com",
