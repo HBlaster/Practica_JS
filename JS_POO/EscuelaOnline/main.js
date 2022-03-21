@@ -1,3 +1,25 @@
+//Agregar comentarios
+class comment {
+    constructor({
+        content,
+        studentName,
+        studentRole = "estudiante",
+    })
+    {
+        this.content = content;
+        this.studentName = studentName;
+        this.studentRole = studentRole;
+        this.likes =0;
+    }
+
+    publicar(){
+        console.log(this.studentName + "(" + this.studentRole + ")" );
+        console.log(this.likes + " likes");
+        console.log(this.content);
+    }
+}
+
+
 function videoPlay(id){
     const urlSecreta = "https://platziultrasecreto.com/" + id;
     console.log("Se esta reproduciendo desd ela url" + urlSecreta );
@@ -29,16 +51,6 @@ function videoStop(id){
     }
     
 }
-
-
-
-
-
-
-
-
-
-
 
 
 //Cursos de la plataforma
@@ -130,9 +142,6 @@ const EscuelaVgs = new learningPaths({
 
 
 
-
-
-
 class Student {
     constructor ({
         name, 
@@ -155,6 +164,14 @@ class Student {
         };
         this.approvedCourses = approvedCourses;
         this.learningPaths = learningPaths;
+    }
+
+    publicarComentario(commentContent){
+        const coment = new comment({
+            content: commentContent,
+            studentName: this.name,
+        });
+        coment.publicar();
     }
 };
 
@@ -200,10 +217,24 @@ class ExpertStudent extends Student {
     }
 }
 
+class TeacherStudent extends Student {
+    constructor(props){
+        super(props); 
+    }
 
+    approveCourse(newCourse){
+        this.approvedCourses.push(newCourse);
+    }
 
-
-
+    publicarComentario(commentContent){
+        const coment = new comment({
+            content: commentContent,
+            studentName: this.name,
+            studentRole:"profesor",
+        });
+        coment.publicar();
+    }
+}
 
 
 
@@ -219,5 +250,12 @@ const jose = new FreeStudent ({
     username: "joseC103",
     email: "joseC@ejemplo.com",
     twitter:"joseC_C1",
+})
+
+const Freddy = new TeacherStudent ({
+    name: "FreddyV",
+    username: "FreddyV10",
+    email: "FreddyV@ejemplo.com",
+    twitter:"FreddyV_1",
 })
 
