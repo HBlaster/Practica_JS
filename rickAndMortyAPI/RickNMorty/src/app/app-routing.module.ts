@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'users-list',
     loadChildren: () => import('./users-list/users-list.module').then( m => m.UsersListPageModule)
   },
+  {
+    path: 'profile/:id',
+    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  },
 ];
 
 @NgModule({

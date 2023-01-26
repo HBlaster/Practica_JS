@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-users-list',
@@ -14,16 +14,16 @@ export class UsersListPage implements OnInit {
 
   constructor(
     private http: HttpClient,
-    
-    ) { }
+
+  ) { }
 
   ngOnInit() {
     this.http.get<any>(this.url)
-    .subscribe(res=>{
-      this.characters = res.results;
-      console.log("Personajes:");
-      console.log(this.characters);
-    });
+      .subscribe(res => {
+        this.characters = res.results;
+        console.log("Personajes:");
+        console.log(this.characters);
+      });
   }
 
 }
