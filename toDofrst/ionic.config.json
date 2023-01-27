@@ -1,0 +1,7 @@
+{
+  "name": "toDofrst",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
