@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -15,7 +14,6 @@ export class Tab1Page {
   constructor(
     public alertController: AlertController,
     public toastController: ToastController,
-    private http: HttpClient,
   ) {}
 
   // ngOnInit(){

@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController,ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -8,11 +9,24 @@ import { AlertController } from '@ionic/angular';
 })
 export class Tab1Page {
 
+  characters = []
+  url = 'https://rickandmortyapi.com/api/character'
+
   constructor(
-    public alertcontroller: AlertController,
+    private http: HttpClient,
+    public toastController: ToastController,
+    public alertcontroller: AlertController
   ) {
     
   }
+
+  ngOnInit(){
+      this.http.get<any>(this.url)
+      .subscribe(data =>{
+        this.characters = data.results
+        console.log(this.characters)
+      })
+    }
 
   async agregarAct(){
     let alert = await this.alertcontroller.create({
@@ -32,6 +46,7 @@ export class Tab1Page {
         {
           text:"Crear",
           handler:(data: any)=>{
+            this.validInput(data)
             console.log(data)
           }
           
