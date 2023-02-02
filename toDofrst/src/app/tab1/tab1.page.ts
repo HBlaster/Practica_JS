@@ -1,3 +1,4 @@
+import { Lista } from './../models/lista.model';
 import { ListaService } from './../servicios/lista.service';
 import { Component } from '@angular/core';
 import { AlertController, ToastController } from '@ionic/angular';
@@ -12,7 +13,11 @@ export class Tab1Page {
     public alertController: AlertController,
     public toastController: ToastController,
     public listaService: ListaService
-  ) {}
+  ) { }
+
+  listas = this.listaService.listas
+
+  // listaItem:any =[]
 
   /**
    *@function agregarAct
@@ -77,5 +82,25 @@ export class Tab1Page {
       duration: 2000,
     });
     toast.present();
+  }
+
+  /**
+   *@function editarLista
+   *@description Editar lista de tareas
+   *@param {any} listaItem valor que se va a editar
+   **/
+  editarLista(listaItem: Lista) {
+    console.log("Editar", listaItem)
+  }
+
+  /**
+   *@function eliminarLista
+   *@description elminar lista de tareas
+   *@param {any} listaItem valor que se va a eliminar
+   **/
+  async eliminarLista(listaItem: Lista) {
+    await this.listaService.eliminarTarea(listaItem);
+    console.log("Se elimino lista", listaItem);
+    this.listas = await this.listaService.listas;
   }
 }
