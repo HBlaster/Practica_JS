@@ -48,9 +48,27 @@ export class ListaService {
       return this.listas= objListas;
   }
 
+  /**
+   *@function eliminarTarea
+   *@description elminar lista de tareas
+   *@param {any} lista valor que se va a eliminar
+   **/
   eliminarTarea(lista:Lista){
     let newLista = this.listas.filter((listaItem)=> listaItem.id != lista.id);
     this.listas = newLista;
+    this.guardarLocal();
+  }
+
+  /**
+   *@function editarLista
+   *@description edicion lista de tareas
+   *@param {any} listaItem valor que se va a editar
+   **/
+   editarTarea(lista:Lista){
+    let matchLista = this.listas.find((listaItem)=> listaItem.id == lista.id)
+    if(matchLista){
+      matchLista.titulo = lista.titulo ;
+    }
     this.guardarLocal();
   }
 

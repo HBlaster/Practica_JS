@@ -55,6 +55,45 @@ export class Tab1Page {
     await alert.present();
   }
 
+
+  /**
+   *@function editarAct
+   *@description Se ejecuta cuando el usuario le da click en editar, para editar una actividad
+   **/
+   async editarAct(lista: Lista) {
+    let alert = await this.alertController.create({
+      header: 'Editar acuerdo',
+      inputs: [
+        {
+          type: 'text',
+          name: 'titulo',
+          placeholder: 'Titulo',
+          value: lista.titulo
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+        },
+        {
+          text: 'Editar',
+          handler: (data: any) => {
+            let isValid: boolean = this.validInput(data);
+            if (isValid) {
+              let titulo = data.titulo;
+              lista.titulo = titulo;
+              this.listaService.editarTarea(lista);
+              this.presentToast('La tarea fue editada corretamente');
+            }
+            console.log(data);
+          },
+        },
+      ],
+    });
+    await alert.present();
+  }
+
   /**
    *@function validInput
    *@description Valida que no se esten enviando valores nulos
@@ -90,7 +129,7 @@ export class Tab1Page {
    *@param {any} listaItem valor que se va a editar
    **/
   editarLista(listaItem: Lista) {
-    console.log("Editar", listaItem)
+    this.editarAct(listaItem);
   }
 
   /**
