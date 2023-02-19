@@ -11,15 +11,38 @@
 <ion-list>
   <ion-item >
     <ion-label position="floating">
-      Nueva tarea
+      Descripcion
     </ion-label>
-    <ion-textarea type="text" (keyup.enter)="agregar()" [(ngModel)]="nombreItem" placeholder="Ingresa nueva entrada"></ion-textarea>
+    <ion-textarea type="text" (keyup.enter)="agregar()" [(ngModel)]="nombreItem" placeholder="Ingresa descripcion de actividad"></ion-textarea>
   </ion-item>
 </ion-list>
 
-<ion-list class="top-border">
-  <ion-item *ngFor=" let actividad of listaRecibida['item']" >
-    <p>{{actividad.descripcion}}</p>
-  </ion-item>
+<ion-list >
+  <ion-list-header>
+    <ion-item>
+      <ion-label>
+       <h2>Lista de tareas</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list-header>
+
+  <ion-item-sliding *ngFor=" let actividad of listaRecibida['item']">
+    <ion-item >
+      <ion-checkbox slot="start" ></ion-checkbox>
+      <p>{{actividad.descripcion}}</p>
+    </ion-item>
+    <ion-item-options side="start">
+      <ion-item-option (click)="editar(listaRecibida,actividad)" >
+        Editar
+      </ion-item-option>
+    </ion-item-options>
+    <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="borrar(actividad)" >
+        Eliminar
+      </ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
+
+  
 </ion-list>
 </ion-content>

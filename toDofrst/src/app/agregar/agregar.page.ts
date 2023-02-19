@@ -1,3 +1,4 @@
+import { Lista } from './../models/lista.model';
 import { Actividad } from './../models/actividades.model';
 import { ActivatedRoute} from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -35,5 +36,12 @@ export class AgregarPage implements OnInit {
     }
 
     console.log("actividad asignada, arreglo con actividad guardada: ", this.listaRecibida);
+  }
+  editar(listaRecibida:Lista,actividad:Actividad){
+    console.log("Editar:", listaRecibida, actividad);
+  }
+
+  borrar(actividad:Actividad){
+    console.log("Borrar:", actividad);
   }
 }
