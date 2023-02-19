@@ -6,14 +6,18 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
+  // {
+  //   path: '',
+  //   redirectTo: 'home',
+  //   pathMatch: 'full'
+  // },
   {
     path: 'users-list',
     loadChildren: () => import('./users-list/users-list.module').then( m => m.UsersListPageModule)
+  },{
+    path: '',
+    redirectTo: 'users-list',
+    pathMatch: 'full'
   },
   {
     path: 'profile/:id',
