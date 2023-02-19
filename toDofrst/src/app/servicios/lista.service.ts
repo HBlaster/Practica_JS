@@ -35,6 +35,7 @@ export class ListaService {
     let stringListas: string = JSON.stringify(this.listas);
     localStorage.setItem('listas', stringListas);
   }
+  
 
   /** 
   *@function cargarLocal

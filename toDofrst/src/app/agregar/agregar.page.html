@@ -7,4 +7,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+<ion-list>
+  <ion-item >
+    <ion-label position="floating">
+      Nueva tarea
+    </ion-label>
+    <ion-textarea type="text" (keyup.enter)="agregar()" [(ngModel)]="nombreItem" placeholder="Ingresa nueva entrada"></ion-textarea>
+  </ion-item>
+</ion-list>
+
+<ion-list class="top-border">
+  <ion-item *ngFor=" let actividad of listaRecibida['item']" >
+    <p>{{actividad.descripcion}}</p>
+  </ion-item>
+</ion-list>
+</ion-content>

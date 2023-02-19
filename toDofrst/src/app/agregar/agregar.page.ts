@@ -1,3 +1,4 @@
+import { Actividad } from './../models/actividades.model';
 import { ActivatedRoute} from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {ListaService} from 'src/app/servicios/lista.service';
@@ -10,6 +11,7 @@ import {ListaService} from 'src/app/servicios/lista.service';
 })
 export class AgregarPage implements OnInit {
   listaRecibida : any;
+  nombreItem:string ='';
   constructor(
     private Router: ActivatedRoute,
     public ListaService: ListaService,
@@ -22,4 +24,16 @@ export class AgregarPage implements OnInit {
   ngOnInit() {
   }
 
+  agregar(){
+    if(this.nombreItem.length===0){
+      return
+    } else {
+      let actividad = new Actividad(this.nombreItem);
+      this.listaRecibida.item.unshift(actividad);
+      this.ListaService.guardarLocal();
+      this.nombreItem = '';
+    }
+
+    console.log("actividad asignada, arreglo con actividad guardada: ", this.listaRecibida);
+  }
 }
