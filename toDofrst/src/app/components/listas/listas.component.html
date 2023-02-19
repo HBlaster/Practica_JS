@@ -1,6 +1,6 @@
 <ion-list>
-  <ion-item-sliding *ngFor="let listaItem of listas">
-    <ion-item >
+  <ion-item-sliding *ngFor="let listaItem of listas" >
+    <ion-item (click)="listaSeleccionada(listaItem)">
       <ion-label>{{listaItem['titulo']}}
       </ion-label>
     </ion-item>

@@ -2,6 +2,7 @@ import { AlertController, ToastController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import {ListaService} from 'src/app/servicios/lista.service';
 import {Lista} from 'src/app/models/lista.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listas',
@@ -13,7 +14,8 @@ export class ListasComponent implements OnInit {
   constructor(
     public ListaService: ListaService,
     public alertController: AlertController,
-    public toastController: ToastController
+    public toastController: ToastController,
+    private router: Router
   ) { }
 
     listas = this.ListaService.listas
@@ -104,6 +106,12 @@ export class ListasComponent implements OnInit {
     await this.ListaService.eliminarTarea(lista);
     await console.log("Se elimino la tarea");
     this.listas = await this.ListaService.listas;
+  }
+
+  listaSeleccionada(listaItem: Lista){
+    console.log(listaItem);
+    const URL = '/agregar/'+listaItem.id;
+    this.router.navigateByUrl(URL);
   }
 
 
