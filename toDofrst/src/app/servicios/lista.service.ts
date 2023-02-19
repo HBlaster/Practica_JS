@@ -72,6 +72,18 @@ export class ListaService {
     this.guardarLocal();
   }
 
+  /**
+   *@function obtenerLista
+   *@description edicion lista de tareas
+   *@param {any} listaItem valor que se va a editar
+   **/
+   obtenerLista(idLista: any){
+    const id = Number(idLista);
+    let matchLista = this.listas.find((listaItem)=> listaItem.id == id);
+    return matchLista;
+
+   }
+
  
 
 }

@@ -1,4 +1,7 @@
+import { ActivatedRoute} from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import {ListaService} from 'src/app/servicios/lista.service';
+
 
 @Component({
   selector: 'app-agregar',
@@ -6,8 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agregar.page.scss'],
 })
 export class AgregarPage implements OnInit {
-
-  constructor() { }
+  listaRecibida : any;
+  constructor(
+    private Router: ActivatedRoute,
+    public ListaService: ListaService,
+  ) {
+    let idLista = this.Router.snapshot.paramMap.get('idLista');
+    this.listaRecibida = this.ListaService.obtenerLista(idLista);
+    console.log("lista recibida: ", this.listaRecibida);
+   }
 
   ngOnInit() {
   }
