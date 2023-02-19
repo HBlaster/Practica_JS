@@ -44,4 +44,17 @@ export class AgregarPage implements OnInit {
   borrar(actividad:Actividad){
     console.log("Borrar:", actividad);
   }
+
+  cambiaCheck(){
+    var pendientes = this.listaRecibida.item.filter((item: any) => item.completado == false).length;
+    console.log("Actividades pendientes: ",pendientes);
+    if(pendientes == 0){
+      this.listaRecibida.completada = true;
+      this.listaRecibida.terminadaEn = new Date();
+    } else {
+      this.listaRecibida.completada = false;
+      this.listaRecibida.terminadaEn = null;
+    }
+    this.ListaService.guardarLocal();
+  }
 }
