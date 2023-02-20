@@ -3,7 +3,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 
 @Pipe({
-  name: 'filtroLista'
+  name: 'filtroLista',
+  pure: false
 })
 export class FiltroListaPipe implements PipeTransform {
 

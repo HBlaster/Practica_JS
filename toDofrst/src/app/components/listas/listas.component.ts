@@ -22,6 +22,7 @@ export class ListasComponent implements OnInit {
     listas = this.ListaService.listas
     
   ngOnInit() {}
+  
 
     /**
    *@function validInput
