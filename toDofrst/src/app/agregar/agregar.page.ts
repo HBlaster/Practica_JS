@@ -3,6 +3,7 @@ import { Actividad } from './../models/actividades.model';
 import { ActivatedRoute} from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {ListaService} from 'src/app/servicios/lista.service';
+import { AlertController, ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -16,6 +17,8 @@ export class AgregarPage implements OnInit {
   constructor(
     private Router: ActivatedRoute,
     public ListaService: ListaService,
+    public alertController: AlertController,
+    public toastController: ToastController,
   ) {
     let idLista = this.Router.snapshot.paramMap.get('idLista');
     this.listaRecibida = this.ListaService.obtenerLista(idLista);
@@ -23,6 +26,35 @@ export class AgregarPage implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+      /**
+   *@function validInput
+   *@description Valida que no se esten enviando valores nulos
+   *@param {any} input valor ingresado por el usuario
+   **/
+   validInput(input: any): boolean {
+    if (input && input.titulo) {
+      console.log('correcto');
+      return true;
+    } else {
+      console.log('input vacio');
+      this.presentToast('debe ingresar un valor');
+      return false;
+    }
+  }
+
+      /**
+   *@function presentToast
+   *@description Muestra mensaje que fue pasado por parametro
+   *@param {string} mensaje mensaje que se mostrara en el toast
+   **/
+   async presentToast(mensaje: string) {
+    let toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000,
+    });
+    toast.present();
   }
 
   agregar(){
@@ -37,12 +69,54 @@ export class AgregarPage implements OnInit {
 
     console.log("actividad asignada, arreglo con actividad guardada: ", this.listaRecibida);
   }
-  editar(listaRecibida:Lista,actividad:Actividad){
-    console.log("Editar:", listaRecibida, actividad);
+  
+  
+    /**
+   *@function editarAct
+   *@description Se ejecuta cuando el usuario le da click en editar, para editar una actividad
+   **/
+   async editarAct( Actividad:Actividad){
+    let alert = await this.alertController.create({
+      header: 'Editar Actividad',
+      inputs: [
+        {
+          type: 'text',
+          name: 'titulo',
+          placeholder: 'Ingresar nombre de la actividad',
+          value: Actividad.descripcion
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel'
+        },
+        {
+          text: 'Editar',
+          handler: (data: Lista) =>{
+            let isValid: boolean = this.validInput(data);
+            if(isValid){
+              let titulo = data.titulo;
+              Actividad.descripcion = titulo;
+              this.ListaService.guardarLocal();
+              this.presentToast("La tarea se edito correctamente");
+            }
+            console.log(data);
+          },
+        },
+      ],
+    });
+    await alert.present();
+  }
+
+  editar(lista: Lista, Actividad:Actividad){
+    console.log("Editar", lista, Actividad);
+    this.editarAct(Actividad);
   }
 
   borrar(actividad:Actividad){
-    console.log("Borrar:", actividad);
+    this.listaRecibida.item= this.listaRecibida.item.filter((item: Actividad) => item !== actividad);
+    this.ListaService.guardarLocal();
   }
 
   cambiaCheck(){
